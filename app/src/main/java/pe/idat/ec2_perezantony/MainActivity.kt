@@ -55,14 +55,29 @@ fun MenuScreen(navController: NavController) {
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 32.dp)
         )
-        Button(onClick = { /* primera opción */ }, modifier = Modifier.padding(8.dp)) {
-            Text("Primera opción")
+        Button(
+            onClick = { /* primera opción */ },
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth() // Para hacer el botón del mismo ancho que los otros
+        ) {
+            Text("REGISTRO")
         }
-        Button(onClick = { navController.navigate("cuestionario") }, modifier = Modifier.padding(8.dp)) {
-            Text("Cuestionario")
+        Button(
+            onClick = { navController.navigate("cuestionario") },
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth()
+        ) {
+            Text("FORMULARIO")
         }
-        Button(onClick = { navController.navigate("eventos") }, modifier = Modifier.padding(8.dp)) {
-            Text("Eventos internacionales")
+        Button(
+            onClick = { navController.navigate("eventos") },
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth()
+        ) {
+            Text("LISTADO")
         }
     }
 }
