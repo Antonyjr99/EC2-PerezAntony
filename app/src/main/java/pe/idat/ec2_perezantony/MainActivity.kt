@@ -95,9 +95,6 @@ fun CuestionarioScreen(navController: NavController) {
             .padding(16.dp)
             .fillMaxWidth()
     ) {
-        Text("Cuestionario", style = MaterialTheme.typography.titleLarge, modifier = Modifier.align(Alignment.CenterHorizontally))
-
-        Spacer(modifier = Modifier.height(8.dp))
 
         Text("1. Marque sus habilidades:", style = MaterialTheme.typography.bodySmall)
         CheckboxList(habilidades, onSelectedItemsChange = { habilidades = it })
@@ -128,20 +125,6 @@ fun CuestionarioScreen(navController: NavController) {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
-            Button(
-                onClick = {
-                    println("Resolviendo cuestionario...")
-                    println("Habilidades: $habilidades")
-                    println("Significado del trabajo: $significadoTrabajo")
-                    println("Paga del trabajo: $pagaTrabajo")
-                    println("¿Trabajas bajo presión?: $trabajaPresion")
-                    println("¿Oportunidad de crecimiento?: $oportunidadCrecimiento")
-                    navController.popBackStack() // Regresa a la ventana anterior
-                },
-                modifier = Modifier.padding(8.dp)
-            ) {
-                Text("RESOLVER")
-            }
 
             Button(
                 onClick = { navController.popBackStack() }, // Acción para regresar
@@ -179,11 +162,12 @@ fun CheckboxList(selectedItems: Set<String>, onSelectedItemsChange: (Set<String>
                         onSelectedItemsChange(newSelectedItems)
                     }
                 )
-                Text(skill, modifier = Modifier.padding(start = 8.dp))
+                Text(skill, modifier = Modifier.padding(start = 4.dp))
             }
         }
     }
 }
+
 
 @Composable
 fun RadioButtonGroupOptions(options: List<String>, selected: String, onSelectedChange: (String) -> Unit) {
@@ -194,7 +178,7 @@ fun RadioButtonGroupOptions(options: List<String>, selected: String, onSelectedC
                     selected = selected == option,
                     onClick = { onSelectedChange(option) }
                 )
-                Text(option, modifier = Modifier.padding(start = 8.dp))
+                Text(option, modifier = Modifier.padding(start = 4.dp))
             }
         }
     }
@@ -213,7 +197,7 @@ fun RadioButtonGroupBoolean(selected: Boolean, onSelectedChange: (Boolean) -> Un
         RadioButton(
             selected = !selected,
             onClick = { onSelectedChange(false) },
-            modifier = Modifier.padding(start = 16.dp)
+            modifier = Modifier.padding(start = 8.dp)
         )
         Text("NO")
     }
